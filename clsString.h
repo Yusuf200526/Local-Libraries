@@ -6,7 +6,7 @@ using namespace std;
 class clsString
 {
 private:
- 
+
 	string _Value;
 	string _PreviousValue;
 
@@ -142,7 +142,7 @@ public:
 		return S1.substr(0, S1.length() - Delim.length());
 	}
 
-	
+
 	static string ReplaceWord(string S1, string ToReplace, string ReplaceWith, bool MatchCase = 1)
 	{
 		vector <string> vString = Split(S1, " ");
@@ -166,7 +166,7 @@ public:
 		return JoinString(vString, " ");
 	}
 
-    string ReplaceWord(string ToReplace, string ReplaceWith, bool MatchCase = 1)
+	string ReplaceWord(string ToReplace, string ReplaceWith, bool MatchCase = 1)
 	{
 		return ReplaceWord(_Value, ToReplace, ReplaceWith, MatchCase);
 	}
@@ -261,7 +261,7 @@ public:
 		_Value = InvertAllLettersCase(_Value);
 	}
 
-	static short CountCapitalLetters(string S1)  
+	static short CountCapitalLetters(string S1)
 	{
 		short Counter = 0;
 		for (short i = 0; i < S1.length(); i++)
@@ -271,7 +271,7 @@ public:
 		}
 		return Counter;
 	}
-	   
+
 	short CountCapitalLetters()
 	{
 		return CountCapitalLetters(_Value);
@@ -312,12 +312,12 @@ public:
 		return Counter;
 	}
 
-	short CountSpecificLetter( char Letter, bool MatchCase = 1)
+	short CountSpecificLetter(char Letter, bool MatchCase = 1)
 	{
 		return CountSpecificLetter(_Value, Letter, MatchCase);
 	}
 
-	
+
 	static short CountVowels(string S1)
 	{
 		short Lenght = S1.length(), Counter = 0;

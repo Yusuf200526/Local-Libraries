@@ -17,7 +17,7 @@ public:
 		_EndDate = EndDate;
 	}
 
-	clsPeriod(clsDate StartDate,clsDate EndDate)
+	clsPeriod(clsDate StartDate, clsDate EndDate)
 	{
 		_StartDate = StartDate;
 		_EndDate = EndDate;

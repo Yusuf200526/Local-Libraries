@@ -6,7 +6,7 @@ using namespace std;
 class clsUtil
 {
 public:
-	enum enCharType { CapitalLetter = 1, SmallLetter = 2, Digit = 3 ,SpecialCharacter = 4, MixChars=5 };
+	enum enCharType { CapitalLetter = 1, SmallLetter = 2, Digit = 3, SpecialCharacter = 4, MixChars = 5 };
 
 	static void Srand()
 	{
@@ -59,7 +59,7 @@ public:
 		return Key;
 	}
 
-	static void GenerateKeys(int NumberOfKeys,enCharType CharType)
+	static void GenerateKeys(int NumberOfKeys, enCharType CharType)
 	{
 		for (int i = 1; i <= NumberOfKeys; i++)
 		{
@@ -115,7 +115,7 @@ public:
 		}
 	}
 
-	static void FillArrayWithRandomNumbers(int arrElements[100], short arrLength,short NumbersFrom,short NumbersTo)
+	static void FillArrayWithRandomNumbers(int arrElements[100], short arrLength, short NumbersFrom, short NumbersTo)
 	{
 		for (int i = 0; i < arrLength; i++)
 		{
@@ -124,7 +124,7 @@ public:
 		cout << endl;
 	}
 
-	static void FillArrayWithRandomKeys(string arrKeys[100], int NumberOfKeys,enCharType CharType) // make it Random Keys and Random word 
+	static void FillArrayWithRandomKeys(string arrKeys[100], int NumberOfKeys, enCharType CharType) // make it Random Keys and Random word 
 	{
 		for (int i = 0; i < NumberOfKeys; i++)
 		{
@@ -132,7 +132,7 @@ public:
 		}
 	}
 
-	static void FillArrayWithRandomWords(string arrKeys[100], int NumberOfWords, enCharType CharType,short WordLength) // make it Random Keys and Random word 
+	static void FillArrayWithRandomWords(string arrKeys[100], int NumberOfWords, enCharType CharType, short WordLength) // make it Random Keys and Random word 
 	{
 		for (int i = 0; i < NumberOfWords; i++)
 		{
@@ -167,7 +167,7 @@ public:
 		return EncryptedText;
 	}
 
-	static void PrintArray(string arr[100], short Length,string Seperater="")
+	static void PrintArray(string arr[100], short Length, string Seperater = "")
 	{
 		for (short i = 0; i < Length; i++)
 		{
@@ -223,7 +223,7 @@ public:
 		}
 		if (Number >= 2000000 && Number <= 999999999)
 		{
-			return NumberToText(Number / 1000000) +  " million " + NumberToText(Number % 1000000);
+			return NumberToText(Number / 1000000) + " million " + NumberToText(Number % 1000000);
 		}
 		if (Number >= 1000000000 && Number <= 1999999999)
 		{

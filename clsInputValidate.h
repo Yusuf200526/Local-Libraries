@@ -17,20 +17,20 @@ public:
 		return (Number >= From && Number <= To);
 	}
 
-	static bool IsDateBetween(clsDate DateToCheck,clsDate DateFrom,clsDate DateTo)
+	static bool IsDateBetween(clsDate DateToCheck, clsDate DateFrom, clsDate DateTo)
 	{
 		return clsPeriod::IsDateInPeriod(clsPeriod(DateFrom, DateTo), DateToCheck);
 	}
 
-	static bool IsDateBetween(clsDate DateToCheck,clsPeriod Period)
+	static bool IsDateBetween(clsDate DateToCheck, clsPeriod Period)
 	{
 		return clsPeriod::IsDateInPeriod(Period, DateToCheck);
 	}
 
-	static int ReadIntNumber(string Message="Invalid Number , please Enter Again ")
+	static int ReadIntNumber(string Message = "Invalid Number , please Enter Again ")
 	{
 		int Number = 0;
-		while (!(cin>>Number))
+		while (!(cin >> Number))
 		{
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -55,7 +55,7 @@ public:
 	{
 		int Number = 0;
 		Number = ReadIntNumber();
-		while (Number<0)
+		while (Number < 0)
 		{
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -79,11 +79,11 @@ public:
 		return Number;
 	}
 
-	static int ReadIntNumberBetween(int From, int To,string Message = "Invalid Number , please Enter Again ")
+	static int ReadIntNumberBetween(int From, int To, string Message = "Invalid Number , please Enter Again ")
 	{
 		int Number = 0;
 		Number = ReadIntNumber();
-		while(!(IsNumberBetween(Number,From,To)))
+		while (!(IsNumberBetween(Number, From, To)))
 		{
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -94,7 +94,7 @@ public:
 	}
 
 
-	static double  ReadDblNumberBetween( double From, double To,string Message = "Invalid Number , please Enter Again ")
+	static double  ReadDblNumberBetween(double From, double To, string Message = "Invalid Number , please Enter Again ")
 	{
 		double Number = 0;
 		Number = ReadIntNumber();
@@ -108,7 +108,7 @@ public:
 		return Number;
 	}
 
-	static void ReadArrayIntElements(int Arr1[100], int& Length,string Message = "Invalid Number , please Enter Again ")
+	static void ReadArrayIntElements(int Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
 	{
 		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
 		Length = ReadIntNumber();
@@ -118,14 +118,14 @@ public:
 		}
 	}
 
-	static void ReadArrayIntPositiveElements(int Arr1[100], int& Length,string Message = "Invalid Number , please Enter Again ")
+	static void ReadArrayIntPositiveElements(int Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
 	{
 		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
 		Length = ReadIntNumber();
 		for (int i = 0; i <= Length - 1; i++)
 		{
 			Arr1[i] = ReadIntNumber();
-			while (Arr1[i]<0)
+			while (Arr1[i] < 0)
 			{
 				cout << Message;
 				Arr1[i] = ReadIntNumber();
@@ -144,7 +144,7 @@ public:
 
 	}
 
-	static void ReadArrayDblPositiveElements(double Arr1[100], int& Length,string Message = "Invalid Number , please Enter Again ")
+	static void ReadArrayDblPositiveElements(double Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
 	{
 		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
 		Length = ReadIntNumber();
@@ -171,7 +171,7 @@ public:
 	static string ReadString()
 	{
 		string S1 = "";
-		getline(cin>>ws, S1);
+		getline(cin >> ws, S1);
 		return S1;
 	}
 
@@ -180,7 +180,7 @@ public:
 		return clsDate::IsValidDate(Date);
 	}
 
-	
+
 
 };
 
