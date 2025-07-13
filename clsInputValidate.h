@@ -7,12 +7,8 @@ class clsInputValidate
 {
 public:
 
-	static bool IsNumberBetween(int Number, int From, int To)
-	{
-		return (Number >= From && Number <= To);
-	}
-
-	static bool IsNumberBetween(double Number, double From, double To)
+	template <typename T> 
+	static bool IsNumberBetween(T Number, T From, T To)
 	{
 		return (Number >= From && Number <= To);
 	}
@@ -27,9 +23,10 @@ public:
 		return clsPeriod::IsDateInPeriod(Period, DateToCheck);
 	}
 
-	static int ReadIntNumber(string Message = "Invalid Number , please Enter Again ")
+	template <typename T> 
+	static T ReadNumber(string Message = "Invalid Number , please Enter Again ")
 	{
-		int Number = 0;
+		T Number = 0;
 		while (!(cin >> Number))
 		{
 			cin.clear();
@@ -39,125 +36,61 @@ public:
 		return Number;
 	}
 
-	static double ReadDblNumber(string Message = "Invalid Number , please Enter Again ")
+	template <typename T>
+	static T ReadPostiveNumber(string Message = "Invalid Number , please Enter Again ")
 	{
-		double Number = 0;
-		while (!(cin >> Number))
-		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cout << Message;
-		}
-		return Number;
-	}
-
-	static int ReadPostiveIntNumber(string Message = "Invalid Number , please Enter Again ")
-	{
-		int Number = 0;
-		Number = ReadIntNumber();
+		T Number = 0;
+		Number = ReadNumber<T>();
 		while (Number < 0)
 		{
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			cout << Message;
-			Number = ReadIntNumber();
+			Number = ReadNumber<T>();
 		}
 		return Number;
 	}
 
-	static double ReadPostiveDblNumber(string Message = "Invalid Number , please Enter Again ")
+	template <typename T>
+	static T ReadNumberBetween(T From, T To, string Message = "Invalid Number , please Enter Again ")
 	{
-		double Number = 0;
-		Number = ReadDblNumber();
-		while (Number < 0)
-		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cout << Message;
-			Number = ReadIntNumber();
-		}
-		return Number;
-	}
-
-	static int ReadIntNumberBetween(int From, int To, string Message = "Invalid Number , please Enter Again ")
-	{
-		int Number = 0;
-		Number = ReadIntNumber();
+		T Number = 0;
+		Number = ReadNumber<T>();
 		while (!(IsNumberBetween(Number, From, To)))
 		{
 			cin.clear();
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			cout << Message;
-			Number = ReadIntNumber();
+			Number = ReadNumber<T>();
 		}
 		return Number;
 	}
 
-
-	static double  ReadDblNumberBetween(double From, double To, string Message = "Invalid Number , please Enter Again ")
-	{
-		double Number = 0;
-		Number = ReadIntNumber();
-		while (!(IsNumberBetween(Number, From, To)))
-		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			cout << Message;
-			Number = ReadIntNumber();
-		}
-		return Number;
-	}
-
-	static void ReadArrayIntElements(int Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
+	template <typename T>
+	static void ReadArrayElements(T Arr1[100], T& Length, string Message = "Invalid Number , please Enter Again ")
 	{
 		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
-		Length = ReadIntNumber();
+		Length = ReadNumber<T>();
 		for (int i = 0; i <= Length - 1; i++)
 		{
-			Arr1[i] = ReadIntNumber();
+			Arr1[i] = ReadNumber<T>();
 		}
 	}
 
-	static void ReadArrayIntPositiveElements(int Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
+	template <typename T>
+	static void ReadArrayPositiveElements(T Arr1[100], T& Length, string Message = "Invalid Number , please Enter Again ")
 	{
-		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
-		Length = ReadIntNumber();
+		cout << "How Many  Numbers do you want to enter? 1 to 100?  ";
+		Length = ReadNumber<T>();
 		for (int i = 0; i <= Length - 1; i++)
 		{
-			Arr1[i] = ReadIntNumber();
+			Arr1[i] = ReadNumber<T>();
 			while (Arr1[i] < 0)
 			{
 				cout << Message;
-				Arr1[i] = ReadIntNumber();
+				Arr1[i] = ReadNumber<T>();
 			}
 		}
-	}
-
-	static void ReadArrayDblElements(double Arr1[100], int& Length)
-	{
-		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
-		Length = ReadIntNumber();
-		for (int i = 0; i <= Length - 1; i++)
-		{
-			Arr1[i] = ReadDblNumber();
-		}
-
-	}
-
-	static void ReadArrayDblPositiveElements(double Arr1[100], int& Length, string Message = "Invalid Number , please Enter Again ")
-	{
-		cout << "How Many Integer Numbers do you want to enter? 1 to 100?  ";
-		Length = ReadIntNumber();
-		for (int i = 0; i <= Length - 1; i++)
-		{
-			Arr1[i] = ReadDblNumber();
-			while (Arr1[i] < 0)
-			{
-				cout << Message;
-				Arr1[i] = ReadDblNumber();
-			}
-		}
-
 	}
 
 	static char ReadCharacter()
